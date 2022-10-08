@@ -1,0 +1,3 @@
+- Computer opponents
+- Improve the Puzzle game (new concept, more/better levels)
+- MIDI Music

@@ -1,0 +1,34 @@
+Requirements:
+
+  Allegro <http://www.talula.demon.co.uk/allegro/index.html>
+
+To compile:
+
+  make <platform>
+  Where platform is either "linux" or "dos".
+
+To install:
+
+  Copy the binary (stax or stax.exe) and *.dat somewhere.
+  If you set the environment variable STAX_DATA, it will look for
+  the datafiles there. Otherwise, it will look in the same directory
+  as the binary itself.
+
+  For example, in linux, you could:
+
+    cp stax /usr/local/bin
+	mkdir -p /usr/local/lib/stax
+	cp *.dat /usr/local/lib/stax
+	export STAX_DATA="/usr/local/lib/stax"
+
+	You could add the last line to /etc/profile to make it system wide
+	or to .bash_profile in your home directory so it's there every time
+	you login.
+
+  In DOS:
+    mkdir c:\stax
+	copy stax.exe c:\stax
+	copy *.dat c:\stax
+
+	Or just run it from the build directory.
+
