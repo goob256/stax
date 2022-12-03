@@ -20,7 +20,7 @@
 
 #include "stax.h"
 
-void LoadData(void) throw (BadLoad)
+void LoadData(void)
 {
 	datafile = load_datafile("#");
 	if (!datafile)

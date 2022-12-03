@@ -95,7 +95,7 @@ public:
 	void FreeTopLandedBlock(int column);
 	bool AddFallingBlock(int column, Block* block, bool force = false);
 	int GetScore(void);
-	bool MoveBlocks(int step) throw (std::bad_alloc); // Returns true when the blocks reach the top of the panel
+	bool MoveBlocks(int step); // Returns true when the blocks reach the top of the panel
 	void Draw(void);
 	Panel(int xx, int yy, int initial_height, float initial_increment);
 	~Panel();
@@ -350,19 +350,19 @@ extern bool Shifty(void);
 
 extern void ProcessCommandLine(int argc, char** argv);
 
-extern void AddColorScheme(char* name, RGB colors[NUM_CONFIGURABLE_COLORS]) throw (std::bad_alloc);
-extern void SetColorScheme(char* name) throw (Invalid);
+extern void AddColorScheme(char* name, RGB colors[NUM_CONFIGURABLE_COLORS]);
+extern void SetColorScheme(char* name);
 extern int GetNumColorSchemes(void);
-extern char* GetColorSchemeName(unsigned int i) throw (Invalid);
+extern char* GetColorSchemeName(unsigned int i);
 extern void Configure(void);
 extern void ReadConfiguration(char* argv0);
 extern void WriteConfiguration(char* argv0);
 
-extern void LoadData(void) throw (BadLoad);
+extern void LoadData(void);
 extern void DestroyData(void);
 
-extern void SetGraphicsMode(void) throw (BadGraphicsMode);
-extern void CreateBuffer(void) throw (std::bad_alloc);
+extern void SetGraphicsMode(void);
+extern void CreateBuffer(void);
 extern void DestroyBuffer(void);
 extern void DrawBlock(int x, int y, Block* block, bool falling);
 extern void FillRectangle(int x1, int y1, int x2, int y2);
@@ -376,12 +376,12 @@ extern void SaveScreenshot(void);
 
 void textout_outline(BITMAP *b, FONT *f, char *s, int x, int y, int color, int outline_color, int bg);
 extern int GUI_GetGradientColor(float percent, int top_color, int bottom_color);
-extern void GUI_Message(char* s1, char* s2, char* s3) throw (std::bad_alloc);
-extern void GUI_WaitMessage(char *s, ...) throw (std::bad_alloc);
-extern bool GUI_Prompt(char *message, char *b1, char *b2) throw (std::bad_alloc);
-extern int GUI_Go(int x, int y, int w, int h, Widget *widgets, int selected, void (*callback)(bool)) throw (std::bad_alloc);
-extern void GUI_GetName(char *caption, char *buf, int maxlen) throw (std::bad_alloc);
-extern void GUI_Initialize(void) throw (std::bad_alloc);
+extern void GUI_Message(char* s1, char* s2, char* s3);
+extern void GUI_WaitMessage(char *s, ...);
+extern bool GUI_Prompt(char *message, char *b1, char *b2);
+extern int GUI_Go(int x, int y, int w, int h, Widget *widgets, int selected, void (*callback)(bool));
+extern void GUI_GetName(char *caption, char *buf, int maxlen);
+extern void GUI_Initialize(void);
 extern void GUI_ShutDown(void);
 extern int GUI_TOP_COLOR;
 extern int GUI_BOTTOM_COLOR;
@@ -412,14 +412,14 @@ extern Input* CreateInput(int player);
 
 extern int GetRandomBlock(void);
 
-extern void InstallSound(void) throw (BadInstall);
+extern void InstallSound(void);
 extern void RemoveSound(void);
 extern void StopMusic(void);
 extern void PlayIntroMusic(void);
 extern void PlayGameMusic(void);
 
 /*
-extern void InstallTimer(void) throw (BadInstall);
+extern void InstallTimer(void);
 extern void RemoveTimer(void);
 */
 extern void UpdateFallingBlocks(int step);

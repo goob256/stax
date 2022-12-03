@@ -286,7 +286,7 @@ static int GUI_GetMinButtonWidth(char *s)
 /*
  * Pass -1 width to let this function figure out the minimum width
  */
-static BITMAP *GUI_CreateButton(int w, char *s, WidgetState state) throw (std::bad_alloc)
+static BITMAP *GUI_CreateButton(int w, char *s, WidgetState state)
 {
 	bool selected = state == WIDGET_STATE_SELECTED || state == WIDGET_STATE_DEPRESSED;
 
@@ -364,7 +364,7 @@ static BITMAP *GUI_CreateButton(int w, char *s, WidgetState state) throw (std::b
 }
 
 // Create a circular button just big enough to fit one character
-static BITMAP *GUI_CreateCharButton(int ch, WidgetState state) throw (std::bad_alloc)
+static BITMAP *GUI_CreateCharButton(int ch, WidgetState state)
 {
 	const int r = 11;
 	const int w = 30, h = 30;
@@ -1247,7 +1247,7 @@ static void GUI_SetColors(void)
 	GUI_BASE_COLOR = GUI_GetGradientColor(50, 50, 50);
 }
 
-int GUI_Go(int x, int y, int w, int h, Widget *widgets, int selected, void (*callback)(bool)) throw (std::bad_alloc)
+int GUI_Go(int x, int y, int w, int h, Widget *widgets, int selected, void (*callback)(bool))
 {
 	if (!GUI_IsSelectable(&widgets[selected])) {
 		GUI_WaitMessage("|255000000*Error*\n|255255000GUI_Go:\nCannot select an unselectable widget");
@@ -1989,7 +1989,7 @@ end:
 	return selected;
 }
 
-void GUI_Message(char *s1, char *s2, char *s3) throw (std::bad_alloc)
+void GUI_Message(char *s1, char *s2, char *s3)
 {
 	if (!s1) {
 		GUI_WaitMessage("|255000000*Error*\n|255255000GUI_Message:\nMust pass at least 1 string");
@@ -2057,7 +2057,7 @@ void GUI_Message(char *s1, char *s2, char *s3) throw (std::bad_alloc)
 	destroy_bitmap(window);
 }
 
-void GUI_WaitMessage(char *s, ...) throw (std::bad_alloc)
+void GUI_WaitMessage(char *s, ...)
 {
 	va_list list;
 	int i, bi = 0, line = 0, lines;
@@ -2182,7 +2182,7 @@ void GUI_WaitMessage(char *s, ...) throw (std::bad_alloc)
 	all.clear();
 }
 
-bool GUI_Prompt(char *message, char *b1, char *b2) throw (std::bad_alloc)
+bool GUI_Prompt(char *message, char *b1, char *b2)
 {
 	Widget widgets[4];
 	
@@ -2219,7 +2219,7 @@ bool GUI_Prompt(char *message, char *b1, char *b2) throw (std::bad_alloc)
 	return ret == 1 ? true : false;
 }
 
-void GUI_Initialize(void) throw (std::bad_alloc)
+void GUI_Initialize(void)
 {
 	GUI_SetColors();	
 

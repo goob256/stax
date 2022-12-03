@@ -25,14 +25,14 @@
 static std::vector<RGB*> color_schemes;
 static std::vector<char*> color_scheme_names;
 
-static char *DuplicateString(char *s) throw (std::bad_alloc)
+static char *DuplicateString(char *s)
 {
 	char *n = new char[strlen(s)+1];
 	memcpy(n, s, strlen(s)+1);
 	return n;
 }
 
-void AddColorScheme(char *name, RGB colors[NUM_CONFIGURABLE_COLORS]) throw (std::bad_alloc)
+void AddColorScheme(char *name, RGB colors[NUM_CONFIGURABLE_COLORS])
 {
 	RGB *scheme = new RGB[NUM_CONFIGURABLE_COLORS];
 	for (int i = 0; i < NUM_CONFIGURABLE_COLORS; i++) {
@@ -44,7 +44,7 @@ void AddColorScheme(char *name, RGB colors[NUM_CONFIGURABLE_COLORS]) throw (std:
 	color_scheme_names.push_back(DuplicateString(name));
 }
 
-void SetColorScheme(char* name) throw (Invalid)
+void SetColorScheme(char* name)
 {
 	for (unsigned int i = 0; i < color_schemes.size(); i++) {
 		if (!strcmp(color_scheme_names[i], name)) {
@@ -64,7 +64,7 @@ int GetNumColorSchemes(void)
 	return color_schemes.size();
 }
 
-char* GetColorSchemeName(unsigned int i) throw (Invalid)
+char* GetColorSchemeName(unsigned int i)
 {
 	if (i >= color_scheme_names.size())
 		throw Invalid();

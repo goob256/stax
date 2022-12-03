@@ -23,7 +23,7 @@
 
 #include "stax.h"
 
-void SetGraphicsMode(void) throw (BadGraphicsMode)
+void SetGraphicsMode(void)
 {
 	set_color_depth(configuration.color_depth);
 	if (set_gfx_mode(configuration.graphics_driver, configuration.screen_width, configuration.screen_height, 0, 0) < 0)
@@ -31,7 +31,7 @@ void SetGraphicsMode(void) throw (BadGraphicsMode)
 	configuration.graphics_mode_set = true;
 }
 
-void CreateBuffer(void) throw (std::bad_alloc)
+void CreateBuffer(void)
 {
 	buffer = create_bitmap(BUFFER_WIDTH, BUFFER_HEIGHT);
 	if (!buffer)

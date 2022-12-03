@@ -445,7 +445,7 @@ int Panel::GetScore(void)
 	return score;
 }
 
-bool Panel::MoveBlocks(int step) throw (std::bad_alloc)
+bool Panel::MoveBlocks(int step)
 {
 	current_increment += rise_increment * step;
 

@@ -20,7 +20,7 @@
 
 #include "stax.h"
 
-void InstallSound(void) throw (BadInstall)
+void InstallSound(void)
 {
 	if (install_sound(configuration.sound_driver, configuration.midi_driver, NULL) == -1)
 		throw BadInstall();

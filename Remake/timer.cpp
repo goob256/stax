@@ -35,7 +35,7 @@ static void IncrementTick(void)
 }
 END_OF_STATIC_FUNCTION(IncrementTick);
 
-void InstallTimer(void) throw (BadInstall)
+void InstallTimer(void)
 {
 	LOCK_VARIABLE(tick);
 	LOCK_FUNCTION(IncrementTick);
