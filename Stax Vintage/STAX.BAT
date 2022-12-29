@@ -1,0 +1,2 @@
+CWSDPMI -s
+STAX.EXE
